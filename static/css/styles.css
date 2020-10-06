@@ -1,0 +1,561 @@
+
+/* The below configurations just makes padding alot easier, should do this for every project */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Custom Properties, update these for your own design */
+
+:root {
+    --ff-primary: 'Source Sans Pro', sans-serif;
+    --ff-secondary: 'Source Code Pro', monospace;
+    
+    --fw-reg: 300;
+    --fw-bold: 900;
+    
+    --clr-light: #fff;
+    --clr-dark: #303030;
+    --clr-accent: #16e0bd;
+    
+    /* setting up custom font sizes to use through out the page */
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+
+    --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25), 0.125em 0.125em 0.25em rgba(0,0,0,.25);
+
+}
+
+/* here we are changing the font sizes when the page loads on larger screens */
+@media (min-width: 800px) {
+    :root {
+        --fs-h1: 4.5rem;
+        --fs-h2: 3.75rem;
+        --fs-h3: 1.5rem;
+        --fs-body: 1.125rem;
+    }
+}
+
+/* General styling  */
+
+/* this will add smooth scrolling throughout my page when I click on a link to take me a section of the page */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--clr-light);
+    color: var(--clr-dark)
+    margin 0;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+}
+
+
+section {
+    padding: 5em 2em;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* anything that has a strong tag around it will be bold */
+strong {
+    font-weight: var(--fw-bold);
+}
+
+/* whenever we tab on anything (links, btns etc), it will create an outline for us to see clearly  */
+:focus {
+    outline: 3px solid var(--clr-accent);
+    outline-offset: 3px;
+}
+
+.btn {
+    display: inline-block;
+    /* this padding will give the link a little box around it */
+    padding: .5em 1.5em;
+    background: var(--clr-accent);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: .8rem;
+    /* any text placed will be capatalized */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: var(--fw-bold);
+    transition: transform 200ms ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(3);
+}
+
+/* Typography  */
+
+h1,
+h2,
+h3 {
+    line-height: 1;
+    margin: 0;
+}
+
+h1 {
+    font-size: var(--fs-h1);
+}
+
+h2 {
+    font-size: var(--fs-h2);
+}
+
+h3 {
+    font-size: var(--fs-h3);
+}
+
+.section__title {
+    margin-bottom: .25em;
+}
+
+.section__title--intro {
+    font-weight: var(--fw-reg);
+}
+
+/* this ensures that the Andrew Osborne will always be on it's own line */
+.section__title--intro strong {
+    display: block;
+}
+
+.section__subtitle {
+    margin: 0;
+    font-size: var(--fs-h3);
+}
+
+.section__subtitle--intro,
+.section__subtitle--about {
+    background: var(--clr-accent);
+    padding: .25em 1em;
+    font-family: var(--ff-secondary);
+    /* this will give it some space from other elements, so stops them touching */
+    margin-bottom: 1em;
+}
+
+
+
+/* Header Section */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+
+}
+.logo {
+    max-width: 300px;
+}
+
+.nav {
+    position: fixed;
+    background: var(--clr-dark);
+    color: var(--clr-light);
+    /* this means the nav bar will take up the whole screen */
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+
+    transform: translate(100%);
+    transition: transform 250ms cubic-bezier(.5, 0, .5, 1 );
+}
+
+.nav__list {
+    list-style: none;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav__link {
+    color: inherit;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-h2);
+    text-decoration: none;
+
+}
+
+.nav__link:hover {
+    color: var(--clr-accent);
+}
+
+.nav-toggle {
+    padding: .5em;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    /* this means that when we click on the hamburger to show our navbar we will still be able to see the hamburger */
+    z-index: 1000;
+}
+
+/* SOMETIMES JUST HARD REFRESH THE PAGE -_- */
+
+.nav-open .nav {
+    transform: translateX(0);
+
+}
+
+.nav-open .nav-toggle {
+    position: fixed;
+}
+
+.nav-open .hamburger {
+    transform: rotate(.625turn);
+}
+
+.nav-open .hamburger::before {
+    transform: rotate(90deg) translateX(-6px);
+}
+
+
+.nav-open .hamburger::after {
+    opacity: 0;
+}
+
+
+/* WORKING ON THE HAMBURGER */
+
+.hamburger {
+    display: block;
+    position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    background: var(--clr-accent);
+    width: 2em;
+    height: 3px;
+    border-radius: 1em;
+    transition: transform 250ms ease-in-out;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    
+}
+
+.hamburger::before {
+    top: 6px;
+}
+
+.hamburger::after {
+    bottom: 6px;
+}
+
+
+/*  Intro section */
+
+.intro {
+    position: relative;
+}
+
+.intro__img {
+    box-shadow: var(--bs);
+}
+
+#sendBtn {
+    color: var(--clr-light);
+    background-color: var(--clr-accent);
+    margin-top: 1em;
+    box-shadow: var(--bs);
+    /* this means the little clicky hand comes up when I hover over the button */
+    cursor: pointer;
+    /* ADD ANIMATIONS TO THIS */
+    
+    
+}
+
+
+
+
+@media (min-width: 600px) {
+    .intro {
+        display: grid;
+        width: min-content;
+        /* this will keep it nice and centered */
+        margin: 0 auto;
+        /* this stops our text and images overlapping */
+        grid-column-gap: 1em;
+        grid-template-areas: 
+            "img title"
+            "img subtitle";
+        grid-template-columns: min-content max-content;
+    }
+
+    .intro__img {
+        grid-area: img;
+        min-width: 250px;
+        /* the position relative ensures that the image appears infront of the descriptor */
+        position: relative;
+        z-index: 2;
+    }
+
+    .section__subtitle--intro {
+        align-self: start;
+        grid-column: -1 / 1;
+        grid-row: 2;
+        text-align: right;
+        position: relative;
+        left: -1.5em;
+        /* here we are adding the 1.5em to make sure that the below description is the same length as the heading tag */
+        width: calc(100% + 1.5em)
+
+    }
+}
+
+/*  Services section */
+
+.my-services {
+    background-color: var(--clr-dark);
+    background-image: url(/static/images/background-pic.jpg);
+    /* this sorts out the image so that it covers the background, thus the image fits to size */
+    background-size: cover;
+    /* this helps to darken the image by blending it with the background colour */
+    background-blend-mode: multiply;
+    /* here we are setting the text color to be white */
+    color: var(--clr-light);
+    /* put all the text to the middle of the services section*/
+    text-align: center;
+
+}
+
+.section__title--services {
+    color: var(--clr-accent);
+    position: relative;
+
+}
+
+/* creating a pseudo element, I have no idea how these work so let's look em up */
+
+.section__title--services::after {
+    content: '';
+    display: block;
+    width: 2em;
+    height: 1px;
+    margin: 0.5em auto 1em;
+    background: var(--clr-light);
+    
+}
+
+
+/* this takes the whole div class which contains all the paragraphs and moves it up slightly, so it's not so close to the 'my work' button */
+.services {
+    margin-bottom: 4em;
+}
+
+.service {
+    /* this stops the services paragraphs from becoming too big */
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+@media (min-width: 800px) {
+    .services {
+        /* for larger screens this will put the paragraphs into rows , next to eachother on the same line; as this is how flex defaults */
+        display: flex;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+    /* this means if there is a sibling to the right of it, then add a margin to the left, so the text isn't touching */
+    .service + .service {
+        margin-left: 2em;
+    }
+}
+
+
+/*  About Me section */
+
+.about-me {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
+.about-me__img {
+    box-shadow: var(--bs);
+}
+
+/* also need to go over grids cause this is kinda confusing */
+@media (min-width: 600px) {
+    .about-me {
+        display: grid;
+        grid-template-columns: 1fr 200px;
+        /* THIS GRID TEMPLATE STUFF SIZES MY LARGE IMAGES SO PERFECTLY, WHY IS CSS SO OP? */
+        grid-template-areas:
+            "title img"
+            "subtitle img"
+            "text img";
+        grid-column-gap: 2em;
+    }
+
+    .section__title--about {
+        grid-area: title;
+        position: relative;
+    }
+
+    .section__subtitle--about {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        position: relative;
+        left: 2em;
+        width: calc(100% + 4em);
+        padding-left: 2em;
+        padding-right: calc(200px + 4em);
+    }
+
+    .about-me__img {
+        grid-area: img;
+        position: relative;
+        z-index: 2;
+
+    }
+}
+
+
+/*  Portfolio section */
+
+/* We will use grid for this */
+
+.my-work {
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    text-align: center;
+}
+
+.section__subtitle--work {
+    color: var(--clr-accent);
+    font-weight: var(--fw-bold);
+    margin-bottom: 1em;
+}
+
+.portfolio {
+    display: grid;
+    /* this will create three columns for us */
+    grid-template-columns: repeat(3, 1fr);
+    /* this will display a certain amount of columns depending on the space
+    each grid has a min size of 300px but if has room to grow it will grow */
+    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+}
+
+.portfolio__item {
+    background: var(--clr-accent);
+    /* this means it grows within it's box and doesn't flow into other boxes */
+    overflow: hidden;
+}
+
+.portfolio__img {
+    transition: 
+            transform 750ms cubic-bezier(.5, 0, .5, 1),
+            opacity 250ms linear;
+}
+
+/* / here we are putting the focus border infront of the image so it's more clear */
+.portfolio__item:focus {
+    position: relative;
+    z-index: 2;
+}
+
+.portfolio__img:hover,
+/* when we tab onto the picture, it will also cause the effect */
+.portfolio__item:focus .portfolio__img {
+    transform: scale(1.2);
+    opacity: .5;
+}
+
+/* Footer Section */
+
+.footer {
+    background: #111;
+    color: var(--clr-accent);
+    text-align: center;
+    padding: 2.5em 0;
+    font-size: var(--fs-h3);
+}
+
+.footer a {
+    /* inherit means it simply takes the color of it's parent */
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer__link {
+    
+    font-weight: var(--fw-bold);
+}
+
+
+.footer__link:hover,
+.social-list__link:hover {
+    opacity: .7;
+}
+
+.footer__link:hover {
+    text-decoration: underline;
+}
+
+.social-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 2em 0 0;
+    padding: 0;
+    
+}
+
+.social-list__item {
+    margin: 0 .5em;
+}
+
+/* Here we are making it easier for people to click the link on their screens */
+.social-list__link {
+    padding: .5em;
+}
+
+
+/* PORTFOLIO ITEM WEBPAGE */
+
+.portfolio-item-individual {
+    padding: 0 2em 2em;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.portfolio-item-individual P {
+    max-width: 700px;
+    /* these two will keep the paragraphs in the middle of the page */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* .my_iframe {
+    display: block;
+} */

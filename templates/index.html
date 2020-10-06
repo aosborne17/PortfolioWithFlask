@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portfolio Website</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />  
+
+        <!-- Update these with your own fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" type="text/css" href="..\static\css\styles.css">
+
+        <!-- Loading in AJAX and Jquery
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <!-- <img src="images/MISFIT CODING (1).png" alt=""> -->
+            </div>
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="#services" class="nav__link">My Services</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About me</a></li>
+                    <li class="nav__item"><a href="#work" class="nav__link">My Work</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <!-- Introduction -->
+        <section class="intro" id="home">
+            <h1 class="section__title section__title--intro">
+                Hi, I'm <strong>Andrew Osborne</strong>
+            </h1>
+            <!-- when this button is clicked we're gonna run a backend function to downlaod my CV onto the user's host PC -->
+            <button type="submit" id="sendBtn">Click To Download CV</button>
+            <p class="section__subtitle section__subtitle--intro">A Full Stack Junior DevOps Engineer</p>
+            <img src="/static/images/IMG_1324 (small).JPG" alt="A selfie of myself" class="intro__img">
+        </section>
+        
+        
+        <!-- My services -->
+        <section class="my-services" id="services">
+            <h2 class="section__title section__title--services">What I do</h2>
+            <div class="services">
+                <div class="service">
+                    <h3>Data Migration</h3>
+                    <p>Specialise in moving information from on premise machines to Cloud Servers. Able to use multiple Providers such as AWS and Azure to ensure maxiumum security of user credentials and reduce excess costs otherwise spent on repairing and upgrading physical hardware.</p>
+                </div> <!-- / service -->
+                
+                <div class="service">
+                    <h3>FullStack Development</h3>
+                    <p>Brought together a combination of backend and frontend frameworks (React, Django, Flask etc) to create fully functional production ready applications. Also implementing relational (MySQL) and non relational (MongoDB) databases to persist information.</p>
+                </div> <!-- / service -->
+                
+                <div class="service">
+                    <h3>CI/CD Pipelines</h3>
+                    <p>Utilised CI/CD pipelines to greatly reduce the time taken to transition source code changes into a deployable state, allowing companies to respond to customer feedback effectively.</p>
+                </div> <!-- / service -->
+
+                <div class="service">
+                    <h3>Containerisation</h3>
+                    <p>A core understanding of the concepts of containerisation and has used this to successfully build a production ready image that minimized the application size by 85%, thus increasing performance by a large scale and allowing greater flexibility when making code changes and implementing additional features.</p>
+                </div> <!-- / service -->
+
+            </div> <!-- / services -->
+            
+            <!-- clicking on ths button will take you to the section that shows my projects -->
+            <a href="#work" class="btn">My Work</a>
+        </section>
+        
+        
+        
+        <!-- About me -->
+        <section class="about-me" id="about">
+            <h2 class="section__title section__title--about">Who I am</h2>
+            <p class="section__subtitle section__subtitle--about">Fitness and Innovation Enthusiast Based Out Of London</p>
+            
+            <div class="about-me__body">
+                <p>I recently graduated from the University Of Portsmouth where I received A First Class in Biomedical Science.</p>
+                <p>Love for all things sports! Keen on maintaining strong not only physically, but spritually and mentall aswell through acts such as mediation and Yoga.</p>
+            </div>
+            
+            <img src="/static/images/IMG_E1437.JPG" alt="Andrew Playing Rugby" class="about-me__img">
+         </section>
+         
+         <!-- My Work -->
+         <section class="my-work" id="work">
+             <h2 class="section__title section__title--work">My work</h2>
+             <p class="section__subtitle section__subtitle--work">A selection of my Projects</p>
+             
+             <div class="portfolio">
+                 <!-- Portfolio item 01 -->
+                 <a href="portfolio-item" target="__blank" class="portfolio__item">
+                     <img src="/static/images/AWS-image.png" alt="" class="portfolio__img">
+                 </a>
+                 
+                 <!-- Portfolio item 02 -->
+                 <a href="portfolio-item" target="__blank" class="portfolio__item">
+                     <img src="/static/images/IMG_1338.JPG" alt="" class="portfolio__img">
+                 </a>
+                 
+                 <!-- Portfolio item 03 -->
+                 <a href="portfolio-item" target="__blank" class="portfolio__item">
+                     <img src="/static/images/IMG_1338.JPG" alt="" class="portfolio__img">
+                 </a>
+                 
+                 <!-- Portfolio item 04 -->
+                 <a href="portfolio-item" target="__blank" class="portfolio__item">
+                     <img src="/static/images/IMG_1338.JPG" alt="" class="portfolio__img">
+                 </a>
+                 
+                 <!-- Portfolio item 05 -->
+                 <a href="portfolio-item" target="__blank" class="portfolio__item">
+                     <img src="/static/images/IMG_1338.JPG" alt="" class="portfolio__img">
+                 </a>
+                 
+                 <!-- Portfolio item 06 -->
+                 <a href="portfolio-item" target="__blank" class="portfolio__item">
+                     <img src="/static/images/IMG_1338.JPG" alt="" class="portfolio__img">
+                 </a>
+                 
+                 <!-- Portfolio item 07 -->
+                 <!-- <a href="portfolio-item.html" target="__blank" class="portfolio__item">
+                     <img src="images/IMG_1338.JPG" alt="" class="portfolio__img">
+                 </a> -->
+                 
+                 <!-- Portfolio item 08 -->
+                 <!-- <a href="portfolio-item.html" target="__blank" class="portfolio__item">
+                     <img src="images/IMG_1338.JPG" alt="" class="portfolio__img">
+                 </a> -->
+                 
+                 <!-- Portfolio item 09 -->
+                 <!-- <a href="#" class="portfolio__item">
+                     <img src="images/IMG_1338.JPG" alt="" class="portfolio__img">
+                 </a> -->
+                 
+                 <!-- Portfolio item 10-->
+                 <!-- <a href="#" class="portfolio__item">
+                     <img src="images/IMG_1338.JPG" alt="" class="portfolio__img">
+                 </a> -->
+             </div>
+         </section>
+         
+         
+         <!-- Footer -->
+         <footer class="footer">
+             <!-- replace with your own email address -->
+             <a href="mailto:aosborne99@outlook.com" class="footer__link">Get In Touch</a>
+             <ul class="social-list">
+                 <li class="social-list__item">
+                     <a class="social-list__link" href="https://twitter.com/home">
+                        <i class="fab fa-twitter">Twitter</i>
+                    </a>
+                </li>
+                 <li class="social-list__item">
+                     <a class="social-list__link" href="https://github.com/aosborne17">
+                        <i class="fab fa-github">Github</i>
+                    </a>
+                    </li>
+                 <li class="social-list__item">
+                     <a class="social-list__link" href="https://www.instagram.com/codesmisfit/">
+                        <i class="fab fa-instagram">Instagram</i>
+                    </a>
+                    </li>
+                 <!-- <li class="social-list__item">
+                     <a class="social-list__link" href="https://github.com">GitHub</a>
+                </li> -->
+             </ul>
+         </footer>
+         <script src="/static/js/index.js"></script>
+         <script src="/static/js/api.js"></script>
+     </body>
+ </html>
